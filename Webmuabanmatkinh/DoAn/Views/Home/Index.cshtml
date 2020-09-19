@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DoAn.Models
+@model List<tbl_SanPham>
+    <link href="~/Content/Indexcss.css" rel="stylesheet" />
+
+<div class="container" style="margin-top:6px" >
+    <div class="product-group">
+        <div class="row">
+            @foreach(var sp in Model)
+            {   
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="card card-product mb-4 border-dark rounded">
+                    <div class="card1">
+                         <img class="card-img-top" src="~/Content/hinhanh/@sp.Hinh" alt="Card image cap" />
+                    </div>
+                    <div class="card-body">
+                        <p>@sp.TenSP @sp.MaSanPham</p>
+                        <a href="@Url.Action("ThemGH","GioHang", new { Ma = @sp.MaSanPham}) " class="btn btn-outline-danger mua" style="width:90px">Mua</a>
+                        <a href="@Url.Action("ChiTietSP","Home", new { ma = @sp.MaSanPham}) " class="btn btn-outline-success ct" style="width:90px">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+

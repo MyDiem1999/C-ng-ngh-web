@@ -1,0 +1,12 @@
+﻿@using DoAn.Models
+@model List<tbl_NhaSanXuat>
+<div>
+    @foreach (var sp in Model)
+    {
+        <div>
+            <a class="dropdown-item" href="@Url.Action("Locds", new {ThuocT="NSX",ma=@sp.MaNSX })">@sp.TenNSX</a>       
+            <div class="dropdown-divider "></div>                            
+        </div>
+    }
+
+</div>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Giỏ hàng của bạn";
+}
+@using DoAn.Models
+@model List<GioHang>
+<h2>Giỏ hàng của bạn </h2>
+
+<div class="container text-dark" style="margin-top:20px;background-color:whitesmoke">
+    <table>
+    <tr>
+        <td><a class="col-md-2">Mã SP</a></td>
+        <td><a class="col-md-2">Tên SP</a></td>
+        <td><a class="col-md-2">Số lượng</a></td>
+        <td><a class="col-md-2">Thành Tiền</a></td>
+        <td><a class="col-md-2">Xóa</a></td>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td><a class="col-md-2" href ="@Url.Action("ChiTietSP","Home", new { Ma = @i.Masp })">@i.Masp</a></td>
+            <td><a class="col-md-2">@i.Tensp</a></td>
+            <td>
+                <form action="@Url.Action("UpdateGioHang",new {Ma = @i.Masp })" method="post">
+                    <a class="col-md-2"><input type="text" name="Txt_SL" value="@i.SL" /></a>
+                </form>
+            </td>
+            <td><a class="col-md-2">@i.DonGia</a></td>
+            <td><a class="col-md-2" href="@Url.Action("DeleteGioHang", new  { Ma = @i.Masp })">Xóa</a></td>
+        </tr>
+    <tr>
+        <td colspan="3"> <a class="col-md-2" style="font-weight:bold">Tổng SP:</a> @ViewBag.SoluongTong</td>
+        <td colspan="2"><a class="col-md-2"style="font-weight:bold">Thành Tiền:</a> @ViewBag.TongTien</td>
+    </tr>
+    <tr>
+        <td class="col-md-2" colspan="4"></td>
+@*        <td class="col-md-2" colspan="4"><a class="btn btn-success" href="@Url.Action("UpdateGioHang")" >Câp nhật giỏ hàng</a></td>*@
+        <td class="col-md-2" colspan="5"><a class="btn btn-success" href="@Url.Action("XLTT")" >Thanh Toán</a></td>
+    </tr>
+    }
+
+</table>
+
+</div>

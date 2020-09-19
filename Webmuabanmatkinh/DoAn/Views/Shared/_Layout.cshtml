@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+    @using DoAn.Models;
+<body style="background-image:url('/Content/hinhanh/50333857_804455873229786_5842750342701252608_n.png')">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark offset" style="height:50px">
+        <div class="container">            
+            <a class="navbar-brand"><img src="~/Content/hinhanh/logo.jpg" height="50" width="50"/></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="@Url.Action("Index","Home")">Home<span class="sr-only">(Current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDopdown1" data-toggle="dropdown" role="button" aria-haspopup="true">Loại</a>
+                        <div class="dropdown-content">
+                           @Html.Action("dsLoai", "Home")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown2">
+                            Loại kính
+                        </a>
+                        <div class="dropdown-content">
+                           @Html.Action("dsnhom", "Home")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown3">
+                            Quốc gia
+                        </a>
+                        <div class="dropdown-content">
+                           @Html.Action("dsNSX", "Home")
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="@Url.Action("XLTK","Home")" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm theo yêu cầu" name="search" style="width:300px" />
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    <a href="@Url.Action("GioHang","GioHang")" class="btn"><img src="~/Content/hinhanh/cartshop1.png"  height="40" width="50"/></a>
+                </form>
+                    
+                @if(Session["KH"]==null){
+                    <a href="@Url.Action("DangNhap","KhachHang")" class="btn btn-outline-light mr-sm-2" style="width:100px">Đăng Nhập</a>
+                }
+                else
+                {
+                    tbl_KhachHang i = (tbl_KhachHang)Session["KH"];
+                    <a class="nav-item mr-sm-2 text-warning" href="@Url.Action("TTKH","KhachHang", new { ma=@i.MaKhachHang})" style="width:100px">Xin chào @i.TenKhachHang</a>
+                    <a href="@Url.Action("LogOut","KhachHang")" class="btn btn-outline-light mr-sm-2">Đăng xuất</a>
+                }
+
+            </div>
+        </div>
+    </nav>
+        <div >
+                @RenderBody()
+        </div>
+ 
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script src="~/Content/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

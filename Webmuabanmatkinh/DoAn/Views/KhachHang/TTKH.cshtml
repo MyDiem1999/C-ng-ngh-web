@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Thông tin khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <style> 
+        label {
+            font-weight:bold;
+        }
+        .a{ width:200px}
+    </style>
+}
+@using DoAn.Models
+@model tbl_KhachHang
+
+<div class="container col-md-6" style="background-color:whitesmoke;margin:20px;margin-left:300px;text-align:justify">
+    <div class="col-md-12">
+        <p ><label class="col-md-3" >Xin chào</label> <a class="nav-item text-danger"style="font-size:x-large" > @Model.TenKhachHang</a></p>
+        <div>
+                <p><label class="col-md-3">Số điện thoại </label> <a class="col-md-2"><input class="a" type="text" value="@Model.SoDienThoai" /> </a></p>
+                <p><label class="col-md-3">Giới tính </label> <a class="col-md-2"><input class="a" type="text" value=" @Model.GioiTinh" /> </a></p>
+
+                <p><label class="col-md-3">Địa chỉ:</label> <a class="col-md-2"><input class="a" type="text" value="@Model.DiaChi" /> </a></p>
+                <p><label class="col-md-3">Mật khẩu</label><a class="col-md-2"> <input class="a" type="password" value="@Model.MatKhau" /> </a></p>
+        </div>
+        </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container col-md-6" style="margin-top:150px;height:300px;background-color:whitesmoke;width:540px">
+    <div class="col-md-12">
+        <p style="text-align:center;font-family:'Times New Roman';font-size:40px;color:blueviolet">ĐĂNG NHẬP</p>
+            <form action="@Url.Action("DN","KhachHang")" method="post">
+                <table>
+                    <tr>
+                        <td class="col-md-2" style="font-size:medium;font-weight:bold"><p>ID</p></td>
+                        <td class="item"><p><input type="text" name="Txt_ID" placeholder="Nhập ID của bạn" style="width:250px" /></p></td>
+                    </tr>
+            
+                    <tr>
+                        <td class="col-md-2" style="font-size:medium;font-weight:bold"><p>Mật Khẩu</p></td>
+                        <td><p><input type="password" name="Txt_MK" placeholder="Nhập Mật khẩu của bạn" style="width:250px" /></p></td>
+                    </tr>
+                </table>
+                <p style="text-align:center"><input class="btn btn-outline-info" type="submit" value="LOGIN" style="width:200px" /></p>
+            </form>
+        <a class="nav-link" href="@Url.Action("DangKy","KhachHang")" style="text-align:center">Bạn đã có tài khoản chưa?</a>
+    </div>
+</div>

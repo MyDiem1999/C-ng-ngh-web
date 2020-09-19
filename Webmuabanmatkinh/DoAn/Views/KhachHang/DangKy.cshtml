@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container col-md-6" style="margin-top:120px;margin-left:350px;background-color:whitesmoke;width:540px; height:400px">
+    <div class="col-md-12" >
+
+        <form action="@Url.Action("XL_DangKy","KhachHang")" method="post">
+        <p style="text-align:center;font-family:'Times New Roman';font-size:40px;color:red;font-weight:bolder">ĐĂNG KÝ</p>
+        <table>
+            <tr>
+                <td class="col-md-1"><p>Họ tên:</p></td>
+                <td class="item"><p><input type="text" name="Txt_Ten"/></p></td>
+            </tr>
+            <tr>
+                <td class="col-md-1"><p>Giới tính:</p></td>
+                <td class="item">
+                    <p>
+                        <input type="radio" name="rad_GT" value="Nam"/>Nam  &nbsp; &nbsp; 
+                        <input type="radio" name="rad_GT" value="Nữ"/>Nữ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1"><p>Số điện thoại:</p></td>
+                <td class="item"><p><input type="text" name="Txt_SDT" /></p></td>
+            </tr>
+            <tr>
+                <td class="col-md-1"><p>Địa chỉ</p></td>
+                <td class="item"><p><input type="text" name="Txt_DC" /></p></td>
+            </tr>
+            <tr>
+                <td class="col-md-1"><p>Mật khẩu</p></td>
+                <td class="item"><p><input type="password" name="Txt_MK" /></p></td>
+            </tr>
+                    <tr>
+                <td class="col-md-1"><p>Nhập lại mật khẩu</p></td>
+                <td class="item"><p><input type="password" name="Txt_NLMK" /></p></td>
+            </tr>
+        </table>
+            <p style="text-align:center">
+                <input class="btn btn-warning text-dark" type="submit" value="CREATE NEW" style="width:200px" />
+            </p>
+        </form>
+    </div>
+</div>
+<span style="color:#d4f115">@ViewData["TB_DK"]</span>
